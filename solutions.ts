@@ -18,11 +18,11 @@ const processInput = (input: string | number | boolean) => {
   return "Inactive";
 };
 
-const formatCoordinate = (
-  data: [lat: number, lng: number, location: string],
+const formatCoordinate = ( 
+  data:readonly [lat: number, lng: number, location: string],
 ) => {
   const [lat, lng, location] = data;
-  return `Location : ${location} (${lat} , ${lng})`;
+  return `Location: ${location} (${lat}, ${lng})`;
 };
 
 const concatenateArrays = <T>(...arrays: T[][]): T[] => {
@@ -56,8 +56,8 @@ class Employee {
     this.name = name;
     this.baseSalary = baseSalary;
   }
-  getDetails() {
-    return `Employee Name: ${this.name}, Base Salary: ${this.baseSalary}`;
+  getDetails() : string {
+    return `Employee: ${this.name}, Base Salary: ${this.baseSalary}`;
   }
 }
 
@@ -69,19 +69,19 @@ class Manager extends Employee {
     this.department = department;
   }
 
-  getRoleInfo() {
-    return `Manager of ${this.department}: ${this.name}`;
-  }
+  getRoleInfo(): string {
+  return `Manager of ${this.department}: ${this.name}`;
+}
 }
 
-const validateAgeAsync =async (age: number): Promise<string> => {
+const validateAgeAsync = (age: number): Promise<string> => {
   return new Promise((resolve, reject) => {
     if (age >= 18) {
       setTimeout(() => {
         resolve("Access Granted");
       }, 1000);
     } else {
-      reject(new Error("Access Denied: Age must be 18 or older."));
+      reject(new Error("Access Denied: Must be 18 or older"));
     }
   });
 };
